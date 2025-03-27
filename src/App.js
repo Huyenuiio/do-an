@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import ArtifactManager from './components/ArtifactManager.js';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div
+        style={{
+          minHeight: '100vh',
+          background: '#f5f5f5', // Nền tổng thể nhẹ nhàng
+          fontFamily: 'Arial, sans-serif',
+        }}
+      >
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/artifact-edit" element={<ArtifactManager />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,436 @@
+/* CSS cho component */
+.artifact-manager {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+.error-message {
+  color: #d32f2f;
+  background: #fde8e8;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+.artifact-form {
+  background: #f5f7fa;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.size-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.media-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.media-input input {
+  flex: 1;
+}
+
+.add-btn, .remove-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.add-btn {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.remove-btn {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.submit-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.submit-btn:hover {
+  background: #388e3c;
+}
+
+.submit-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.artifact-list {
+  margin-top: 30px;
+}
+
+.artifact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.artifact-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.artifact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.artifact-header h4 {
+  margin: 0;
+  color: #1a1a2e;
+}
+
+.delete-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+}
+
+.delete-btn:disabled {
+  background: #cccccc;
+}
+
+.artifact-description {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.artifact-details {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.artifact-media img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.loading-text, .empty-text {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+/* Thêm các style mới cho phần hiển thị ID */
+.artifact-id {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  transition: background 0.2s;
+}
+
+.artifact-id:hover {
+  background: #e0e0e0;
+}
+
+.id-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.id-value {
+  font-family: monospace;
+  font-size: 13px;
+  word-break: break-all;
+  color: #333;
+}
+
+/* Các style khác giữ nguyên như trước */
+
+
+
+/* QR Code Modal */
+.qr-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.qr-modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 300px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.qr-code-container {
+  margin: 15px 0;
+  padding: 10px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.qr-id {
+  font-family: monospace;
+  font-size: 16px;
+  margin: 10px 0;
+  word-break: break-all;
+  background: #f5f5f5;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.close-btn {
+  padding: 8px 20px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #d32f2f;
+}
+
+.artifact-id {
+  cursor: pointer;
+  color: #2196F3;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.artifact-id:hover {
+  background: #e3f2fd;
+  text-decoration: underline;
+}
+
+.id-label {
+  font-weight: 500;
+}
+
+.id-value {
+  font-family: monospace;
+  margin-left: 5px;
+}
+
+
+/* Thêm style cho SVG để đảm bảo hiển thị đúng */
+.qr-code-container svg {
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

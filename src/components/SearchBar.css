@@ -1,0 +1,101 @@
+/* Container chính của SearchBar */
+.searchbar-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+/* Nhóm input và nút chức năng */
+.searchbar-input-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+/* Style cho ô nhập tìm kiếm */
+.searchbar-input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+  outline: none;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+/* Các style chung cho nút */
+.searchbar-button {
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  transition: background 0.3s;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+/* Nút tìm kiếm */
+.searchbar-search-button {
+  padding: 10px 20px;
+  background: #e94560;
+  border-radius: 0 5px 5px 0;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+.searchbar-search-button:hover {
+  background: #d32f4b;
+}
+
+/* Nút bật/tắt máy quét QR */
+.searchbar-scanner-button {
+  padding: 10px;
+  background: #4b7bec;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+.searchbar-scanner-button:hover {
+  background: #3867d6;
+}
+
+/* Container cho máy quét */
+.scanner-container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+/* Container cho máy quét sử dụng id do thư viện html5-qrcode */
+#qr-reader {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hướng dẫn bên dưới máy quét */
+.scanner-instruction {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Nút quay lại */
+.back-button {
+  margin: 10px;
+  padding: 10px 15px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+
+}
