@@ -21,11 +21,13 @@
 .searchbar-input {
   padding: 10px;
   width: 300px;
-  border: 1px solid #ccc;
+  border: 1px solid #3e4446;
   border-radius: 5px 0 0 5px;
   font-size: 16px;
   outline: none;
   font-family: 'Quicksand', sans-serif;
+  background-color: rgb(21 31 46);
+  color: #99a6b7;
 
 }
 
@@ -42,20 +44,20 @@
 /* Nút tìm kiếm */
 .searchbar-search-button {
   padding: 10px 20px;
-  background: #e94560;
+  background: rgb(119 122 158);
   border-radius: 0 5px 5px 0;
   font-family: 'Quicksand', sans-serif;
-
+color: rgb(168 186 205);
 }
 
 .searchbar-search-button:hover {
-  background: #d32f4b;
+  background: #d3d5f3;
 }
 
 /* Nút bật/tắt máy quét QR */
 .searchbar-scanner-button {
   padding: 10px;
-  background: #4b7bec;
+  background: #3db4f2;
   border-radius: 5px;
   margin-left: 10px;
   font-family: 'Quicksand', sans-serif;
@@ -63,7 +65,7 @@
 }
 
 .searchbar-scanner-button:hover {
-  background: #3867d6;
+  background:#58bff4;
 }
 
 /* Container cho máy quét */
@@ -85,14 +87,15 @@
 .scanner-instruction {
   text-align: center;
   margin-top: 10px;
+  color: #96a5b4;
 }
 
 /* Nút quay lại */
 .back-button {
   margin: 10px;
   padding: 10px 15px;
-  background-color: #f44336;
-  color: white;
+  background-color: rgb(21, 31, 46);
+  color: rgb(159, 173, 189);
   border: none;
   border-radius: 5px;
   cursor: pointer;

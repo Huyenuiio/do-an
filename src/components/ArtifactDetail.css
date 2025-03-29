@@ -2,7 +2,7 @@
   padding: 30px;
   max-width: 800px;
   margin: 0 auto;
-  background: #fff;
+  background: rgb(21 31 46);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: 'Quicksand', sans-serif;
@@ -10,7 +10,7 @@
 
 .artifact-title {
   font-size: 28px;
-  color: #1a1a2e;
+  color: rgb(159 173 189);
   margin-bottom: 20px;
   font-family: Arial, sans-serif;
   font-family: 'Quicksand', sans-serif;
@@ -37,7 +37,7 @@
 
 .artifact-info {
   font-size: 16px;
-  color: #333;
+  color: rgb(128 146 160);
   margin-bottom: 15px;
   font-family: 'Quicksand', sans-serif;
 }

@@ -1,7 +1,6 @@
 .navbar {
   padding: 15px 20px;
-  background: #1a1a2e;
-  color: #fff;
+  background: #152232;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,14 +9,16 @@
 }
 
 .navbar-brand {
-  color: #fff;
+  color: #a0b1c5;
   text-decoration: none;
   font-size: 24px;
   font-weight: bold;
   font-family: Arial, sans-serif;
   font-family: 'Quicksand', sans-serif;
 }
-
+.navbar-brand:hover{
+  color: #d3d5f3;
+}
 .nav-link {
   color: #fff;
   text-decoration: none;
@@ -29,5 +30,5 @@
 }
 
 .nav-link:hover {
-  background: #e94560;
+  background: #3db4f2;
 }

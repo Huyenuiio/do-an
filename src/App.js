@@ -12,7 +12,7 @@ const App = () => {
       <div
         style={{
           minHeight: '100vh',
-          background: '#f5f5f5', // Nền tổng thể nhẹ nhàng
+          background: '#0b1622', // Nền tổng thể nhẹ nhàng
           fontFamily: 'Arial, sans-serif',
         }}
       >
@@ -20,7 +20,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/artifact-edit" element={<ArtifactManager />} />
+         
         </Routes>
+       
       </div>
     </Router>
   );

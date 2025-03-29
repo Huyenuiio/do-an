@@ -50,8 +50,8 @@ const ArtifactList = ({ artifacts, loading }) => {
   style={{
     margin: '10px',
     padding: '10px 15px',
-    backgroundColor: '#f44336',
-    color: 'white',
+    backgroundColor: '#151f2e',
+    color: '#9fadbd',
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
