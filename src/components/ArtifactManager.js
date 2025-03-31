@@ -295,7 +295,7 @@ const ArtifactManager = () => {
       </div>
       
       {/* Artifacts list */}
-      <div className="artifact-list">
+      <div className="artifact-list-2">
         <h3>Danh sách hiện vật ({artifacts.length})</h3>
         
         {loading && artifacts.length === 0 ? (

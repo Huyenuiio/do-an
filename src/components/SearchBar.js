@@ -10,20 +10,62 @@ const supabase = createClient(
   process.env.REACT_APP_SUPABASE_ANON_KEY
 );
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showScanner, setShowScanner] = useState(false);
   const [selectedArtifact, setSelectedArtifact] = useState(null);
   const scannerRef = useRef(null);
 
-  const handleSearch = () => {
-    onSearch(searchTerm);
+  // Hide artifact container
+  const hideArtifactContainer = () => {
+    const container = document.querySelector('.artifact-container');
+    if (container) {
+      container.style.display = 'none';
+    }
   };
 
-  const handleScan = async (decodedText, decodedResult) => {
+  // Show artifact container
+  const showArtifactContainer = () => {
+    const container = document.querySelector('.artifact-container');
+    if (container) {
+      container.style.display = 'block';
+    }
+  };
+
+  // Automatically show artifact container when unmounting
+  useEffect(() => {
+    return () => {
+      showArtifactContainer();
+    };
+  }, []);
+
+  const handleSearch = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('artifacts')
+        .select('*')
+        .ilike('name', `%${searchTerm}%`); // Fixed template literal syntax
+
+      if (error) {
+        console.error('Error fetching artifact details:', error);
+        return;
+      }
+
+      if (data.length > 0) {
+        hideArtifactContainer();
+        setSelectedArtifact(data[0]);
+      } else {
+        console.log("No artifacts found with the name:", searchTerm);
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
+    }
+  };
+
+  const handleScan = async (decodedText) => {
     if (decodedText) {
       const scannedId = decodedText;
-      console.log("Đã quét mã QR, ID:", scannedId);
+      console.log("QR code scanned, ID:", scannedId);
       setSearchTerm(scannedId);
 
       try {
@@ -34,13 +76,14 @@ const SearchBar = ({ onSearch }) => {
           .single();
 
         if (error) {
-          console.error('Lỗi khi tìm nạp chi tiết hiện vật:', error);
+          console.error('Error fetching artifact details:', error);
           return;
         }
 
+        hideArtifactContainer();
         setSelectedArtifact(data);
       } catch (error) {
-        console.error('Lỗi không mong muốn:', error);
+        console.error('Unexpected error:', error);
       }
 
       setShowScanner(false);
@@ -48,10 +91,11 @@ const SearchBar = ({ onSearch }) => {
   };
 
   const handleScanError = (errorMessage) => {
-    console.error("Lỗi khi quét mã QR:", errorMessage);
+    console.error("Error scanning QR code:", errorMessage);
   };
 
   const handleCloseDetail = () => {
+    showArtifactContainer();
     setSelectedArtifact(null);
   };
 
@@ -79,7 +123,12 @@ const SearchBar = ({ onSearch }) => {
     }
   }, [showScanner]);
 
-  // Nếu đã chọn hiện vật, hiển thị chi tiết hiện vật với nút "Quay lại danh sách"
+  const handleInputKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   if (selectedArtifact) {
     return (
       <div>
@@ -87,7 +136,7 @@ const SearchBar = ({ onSearch }) => {
           onClick={handleCloseDetail}
           className="back-button"
         >
-          Quay lại danh sách
+          Back to List
         </button>
         <ArtifactDetail artifact={selectedArtifact} />
       </div>
@@ -101,20 +150,21 @@ const SearchBar = ({ onSearch }) => {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Tìm kiếm hiện vật..."
+          onKeyDown={handleInputKeyDown}
+          placeholder="Search artifacts..."
           className="searchbar-input"
         />
         <button
           onClick={handleSearch}
           className="searchbar-button searchbar-search-button"
         >
-          Tìm
+          Search
         </button>
         <button
           onClick={() => setShowScanner(!showScanner)}
           className="searchbar-button searchbar-scanner-button"
         >
-          {showScanner ? 'Đóng QR' : 'Quét QR'}
+          {showScanner ? 'Close QR' : 'Scan QR'}
         </button>
       </div>
 
@@ -124,7 +174,7 @@ const SearchBar = ({ onSearch }) => {
             ref={scannerRef} 
             id="qr-reader"
           ></div>
-          <p className="scanner-instruction">Đặt mã QR vào ô quét</p>
+          <p className="scanner-instruction">Place QR code in scanning area</p>
         </div>
       )}
     </div>

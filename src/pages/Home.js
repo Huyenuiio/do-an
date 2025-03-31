@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SearchBar from '../components/SearchBar';
+// import SearchBar from '../components/SearchBar';
 import api from '../services/api';
 import ArtifactList from '../components/ArtifactList';
 
@@ -24,25 +24,25 @@ const Home = () => {
     fetchArtifacts();
   }, []); // Xóa dependency [searchTerm] để chỉ fetch một lần
 
-  const handleSearch = (searchTerm) => {
-    setLoading(true);
-    if (!searchTerm) {
-      setFilteredArtifacts(artifacts); // Trở về danh sách gốc nếu không có từ khóa
-    } else {
-      const lowerCaseTerm = searchTerm.toLowerCase();
-      const filtered = artifacts.filter(
-        (artifact) =>
-          artifact.name.toLowerCase().includes(lowerCaseTerm) ||
-          (artifact.description && artifact.description.toLowerCase().includes(lowerCaseTerm))
-      );
-      setFilteredArtifacts(filtered);
-    }
-    setLoading(false); // Không cần delay vì không fetch lại từ server
-  };
+  // const handleSearch = (searchTerm) => {
+  //   setLoading(true);
+  //   if (!searchTerm) {
+  //     setFilteredArtifacts(artifacts); // Trở về danh sách gốc nếu không có từ khóa
+  //   } else {
+  //     const lowerCaseTerm = searchTerm.toLowerCase();
+  //     const filtered = artifacts.filter(
+  //       (artifact) =>
+  //         artifact.name.toLowerCase().includes(lowerCaseTerm) ||
+  //         (artifact.description && artifact.description.toLowerCase().includes(lowerCaseTerm))
+  //     );
+  //     setFilteredArtifacts(filtered);
+  //   }
+  //   setLoading(false); // Không cần delay vì không fetch lại từ server
+  // };
 
   return (
     <div>
-      <SearchBar onSearch={handleSearch} />
+      {/* <SearchBar onSearch={handleSearch} /> */}
       <ArtifactList artifacts={filteredArtifacts} loading={loading} /> {/* Truyền thêm loading */}
     </div>
   );

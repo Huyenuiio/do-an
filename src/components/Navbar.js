@@ -9,10 +9,17 @@ const Navbar = () => {
         Bảo tàng Tranh Đông Dương
       </Link>
       <div>
-        <Link className="nav-link" to="/artifact-edit">
+      <Link className="nav-link" to="/artifact-edit">
         Artifact Manager
         </Link>
+        
+        <Link className="nav-link" to="/artifact-search">
+        Search
+        </Link>
+        
+
       </div>
+     
     </nav>
   );
 };
